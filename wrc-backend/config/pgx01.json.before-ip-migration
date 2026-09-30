@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "navigation_text": "",
+  "vehicle_heading": {
+    "azimuth_offset_deg": 0
+  },
+  "camera_freshness": {
+    "camera_stale_ms": 1000,
+    "camera_pose_delta_ms": 1000,
+    "window_max_age_ms": 2000,
+    "frame_timeout_ms": 3000
+  },
+  "time_sync": {
+    "enabled": true,
+    "pose_timestamp_mode": "unix",
+    "arrival_fallback": false,
+    "pose_unix_unit": "seconds",
+    "max_future_offset_ms": 200
+  },
+  "inference_pool": {
+    "mode": "multi_process",
+    "gpu_devices": [0],
+    "latest_only": true,
+    "pending_capacity": 1,
+    "result_max_age_ms": 2500,
+    "max_capture_lag_ms": 2500,
+    "scheduler_poll_interval_ms": 20,
+    "worker_start_timeout_s": 240,
+    "minimum_ready_workers": 1,
+    "metrics_window_s": 60,
+    "worker_warmup": true,
+    "dispatch_interval_ms": 0,
+    "network_workers": [
+      "http://192.168.50.3:8092",
+      "http://192.168.50.4:8092",
+      "http://192.168.50.5:8092"
+    ],
+    "network_connect_timeout_s": 2.0,
+    "network_infer_timeout_s": 4.0,
+    "network_health_interval_ms": 500
+  },
+  "network": {
+    "cimg": {"host": "0.0.0.0", "port": 30106},
+    "pose_udp": {"host": "0.0.0.0", "port": 7001},
+    "waypoint": {"host": "168.130.182.10", "port": 7010},
+    "route_tcp": {"enabled": true, "host": "0.0.0.0", "port": 30006},
+    "http": {"host": "0.0.0.0", "port": 8090},
+    "http_client": {
+      "hf_endpoint": "https://hf-mirror.com",
+      "package_test_url": "http://127.0.0.1:8091/infer"
+    }
+  },
+  "retention": {
+    "snapshot_keep": 600,
+    "infer_package_keep": 600
+  }
+}

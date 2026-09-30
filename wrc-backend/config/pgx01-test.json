@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "inference_pool": {
+    "mode": "multi_process",
+    "gpu_devices": [0],
+    "network_workers": [],
+    "minimum_ready_workers": 1,
+    "worker_start_timeout_s": 240,
+    "worker_warmup": true,
+    "result_max_age_ms": 10000,
+    "max_capture_lag_ms": 10000
+  },
+  "network": {
+    "cimg": {"host": "127.0.0.1", "port": 31106},
+    "pose_udp": {"host": "127.0.0.1", "port": 17001},
+    "waypoint": {"host": "127.0.0.1", "port": 17110},
+    "route_tcp": {"enabled": false, "host": "127.0.0.1", "port": 31006},
+    "http": {"host": "127.0.0.1", "port": 18090}
+  }
+}

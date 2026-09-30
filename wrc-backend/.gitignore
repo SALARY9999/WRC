@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+*.log
+*.pid
+*.bak*
+server.log
+eval_output/plots/
+eval_output/__pycache__/
+.idea

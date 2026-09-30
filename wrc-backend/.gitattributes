@@ -1,0 +1,15 @@
+# 统一换行，别让签出机器的设置改变部署产物。
+#
+# 本仓库在 Windows 上开发、部署到 Linux。``core.autocrlf=true`` 会把签出内容
+# 转成 CRLF，而 ``git archive`` 会套用同一套转换，于是部署到服务器上的
+# ``.sh`` 带上 CRLF，直接语法错误：
+#
+#     set: pipefail: invalid option name
+#     $'\r': command not found
+#
+# Python 容忍 CRLF，shell 不容忍，所以这类问题只在真正启动服务时才炸。
+# 钉死为 LF 后，无论机器上 ``core.autocrlf`` 设成什么，导出的都是 LF。
+* text=auto eol=lf
+
+# 显式再说一遍脚本，避免 ``text=auto`` 对某个文件的判定与预期不符。
+*.sh text eol=lf
